@@ -1,0 +1,5 @@
+_shots/
+*.bak*
+*.ceu.json
+.DS_Store
+README.md
