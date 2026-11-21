@@ -979,6 +979,8 @@ body.qmodal-lock{overflow:hidden}
 .lp-hero .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center;
   padding:clamp(48px,8vw,104px) 0 clamp(48px,8vw,96px)}
 .lp-hero .hero-content{max-width:600px}
+/* reserva a altura do titulo do topo nas larguras em que a fonte Sora quebra em 6 linhas (evita o card pular quando a fonte chega) */
+@media (min-width:1241px){.lp-hero .hero-content h1{min-height:calc(6 * 1.12em)}}
 .lp-hero .hero-location{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--gold-2);
   font-family:"Sora","Sora Fallback",sans-serif;font-weight:600;font-size:.94rem}
 .lp-hero .hero-location svg{width:18px;height:18px;color:var(--gold)}
