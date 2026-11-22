@@ -1955,7 +1955,7 @@ function detectPlatform(){
   if (url.includes('meta') || url.includes('facebook') || url.includes('instagram')) return 'META';
   return 'DIRECT';
 }
-function getSource(){ return 'Landing Page - Deck Remarketing'; } /* origem igual a da LP deck-remarketing: nao sobrescrever source (regra Innov) */
+function getSource(){ return 'Deck Builders, MA | Innov Builders'; } /* LP do Google Ads (BF): FONTE = nome da página; source padrão das LPs do Google (igual Bath e Kitchen) */
 
 function mgSaveUD(fd){try{var e=String(fd.get('email')||'').trim().toLowerCase(),d=String(fd.get('phone')||'').replace(/\D/g,''),p='';if(d.length===10)p='+1'+d;else if(d.length===11&&d.charAt(0)==='1')p='+'+d;else if(d.length>=11)p='+'+d;var u={};if(e&&e.indexOf('@')>0)u.email=e;if(p)u.phone_number=p;sessionStorage.setItem('mg_ud',JSON.stringify(u));}catch(x){}}
 function mgLpAttr(){try{var a=JSON.parse(sessionStorage.getItem('mg_lp_attr')||'{}'),o={},q=new URLSearchParams(location.search);['gclid','gbraid','wbraid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','landing_url'].forEach(function(k){var v=q.get(k)||a[k];if(v)o[k]=v;});return o;}catch(e){return {};}}
@@ -2014,7 +2014,7 @@ function initStepForm(form){
     var btn=form.querySelector('[type=submit]');
     if(btn){btn.innerHTML='Sending...';btn.disabled=true;}
     mgSaveUD(fd);
-    await sendToWebhook(Object.assign({name:fd.get('name'),email:fd.get('email'),phone:fd.get('phone'),service:'Deck / Porch',project_type:fd.get('service'),message:'Project: '+(fd.get('service')||'')+(window.__mgGift?' | Offer: Black Friday Gift 2026 (free patio umbrella)':' | Free estimate request'),sms_consent:fd.get('sms_consent')?'yes':'no',PLATAFORMA:'GOOGLE',FONTE:getSource(),source:getSource(),campaign:'bf-deck-2026',utm_campaign:'bf-deck-2026',page_url:window.location.href,form_id:form.id,tags:[],tags_extra:['marketing','black-friday-2026']},mgLpAttr()));
+    await sendToWebhook(Object.assign({name:fd.get('name'),email:fd.get('email'),phone:fd.get('phone'),service:'Deck / Porch',project_type:fd.get('service'),message:'Project: '+(fd.get('service')||'')+(window.__mgGift?' | Offer: Black Friday Gift 2026 (free patio umbrella)':' | Free estimate request'),sms_consent:fd.get('sms_consent')?'yes':'no',PLATAFORMA:'GOOGLE',FONTE:getSource(),source:'trafego (google lp)',campaign:'bf-deck-2026',utm_campaign:'bf-deck-2026',page_url:window.location.href,form_id:form.id,tags:[],tags_extra:['marketing','black-friday-2026']},mgLpAttr()));
     window.location.href='gift-thank-you.html'+(window.__mgGift?'?g=1':'?g=0');
   });
   show(0);
